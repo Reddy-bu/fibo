@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  flask:
+    build: .
+    container_name: Flask
+    ports:
+      - "8081:8081"
+    depends_on:
+      - cache
+  cache:
+   image: memcached
+   ports:
+     - "11211:11211"
